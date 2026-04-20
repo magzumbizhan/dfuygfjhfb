@@ -1,0 +1,125 @@
+/* Общий стиль */
+body {
+    background-color: #141414;
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace; /* Для эффекта печати */
+}
+
+.feed {
+    width: 100%;
+    max-width: 450px;
+}
+
+.task {
+    background-color: #1c1c1c;
+    border: 1px solid #2a2a2a;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #555;
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.stage {
+    background-color: #0f0f0f;
+    height: 140px;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- 08. Карточка с hover-эффектом --- */
+.hover-card {
+    width: 100px;
+    height: 60px;
+    background-color: #2a2a2a;
+    border: 1px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+    /* Поднимаем вверх */
+    transform: translateY(-10px);
+    /* Глубокая мягкая тень */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    color: #888;
+}
+
+/* --- 09. Анимация текста (Typing) --- */
+.typing-container {
+    display: inline-block;
+}
+
+.typing-text {
+    color: #aeb8c4;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden; /* Скрываем невыведенные буквы */
+    border-right: 2px solid #4a5568; /* Курсор */
+    width: 0;
+    /* steps(14) — количество букв в фразе */
+    animation: typing 3s steps(14) infinite, blink 0.5s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    from, to { border-color: transparent; }
+    50% { border-color: #4a5568; }
+}
+
+/* --- 10. Прелоадер (3 точки) --- */
+.dot-loader {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #4a5568;
+    border-radius: 50%;
+    animation: jump-dot 0.6s infinite alternate;
+}
+
+/* Расставляем задержки для очереди */
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes jump-dot {
+    from {
+        transform: translateY(0);
+        opacity: 0.3;
+    }
+    to {
+        transform: translateY(-15px);
+        opacity: 1;
+    }
+}
